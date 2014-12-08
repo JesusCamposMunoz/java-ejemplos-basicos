@@ -1,6 +1,7 @@
 package com.jesuscampos.ficheros.utils;
 
 import java.io.File;
+import java.io.IOException;
 
 public class FicherosUtils {
 
@@ -24,4 +25,5 @@ public class FicherosUtils {
 		}
 		
 	}
+	
 }
