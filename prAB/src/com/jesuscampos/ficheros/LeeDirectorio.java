@@ -31,7 +31,7 @@ public class LeeDirectorio {
 			}
 		}
 		catch(NullPointerException e){
-			System.out.println("FICHERO ERRONE");
+			System.out.println("FICHERO ERRONEO");
 		}
 	}
 
