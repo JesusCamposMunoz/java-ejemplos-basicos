@@ -1,54 +1,56 @@
 package test.hibernate.app;
 
+import java.util.HashSet;
+import java.util.List;
+import java.util.Set;
+
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
-import javax.persistence.EntityTransaction;
 import javax.persistence.Persistence;
 
 import test.hibernate.dominio.PersonaBasica;
+import test.hibernate.dominio.Vuelo;
+
 
 public class RecoverData {
 	public static void main(String[] args) {
 		EntityManagerFactory factory = Persistence.createEntityManagerFactory("data");
-		//este data va relacionado con el: <persistence-unit name="data"> del persistance.xml
+		//El EntityManager es un recurso, equivale a una conexión a BD.
 		
-		EntityManager em = factory.createEntityManager();
+		//Ahora, aunque la tabla se llame vuelos, aviones o como sea, lo que busca son objetos que cumplan con estas características.
 		
-		EntityTransaction tx = em.getTransaction();
+		String jpql = "select p "
+				+"from PersonaBasica as p "
+				+"where p.nombre = :n"; //:origen es como los interrogante de JDBC.
+//				+"	and v.partida <= :dia"	//Uso de fechas
+//				+"	and v.llegada > :diaPosterior";
 		
-		tx.begin();
-		
-		PersonaBasica p1 = new PersonaBasica();
-		p1.setDni("345666786T");
-		p1.setEdad(83);
-		p1.setNombre("Jesus");
-		
-		PersonaBasica p2 = new PersonaBasica();
-		p2.setDni("345662286T");
-		p2.setEdad(22);
-		p2.setNombre("carlos gomez");
-		
-		PersonaBasica p3 = new PersonaBasica();
-		p3.setDni("345663386T");
-		p3.setEdad(33);
-		p3.setNombre("jesús");
-		
-		PersonaBasica p4 = new PersonaBasica();
-		p4.setDni("345234254Y");
-		p4.setEdad(33);
-		p4.setNombre("laura garcía");
-		
-					
-		//Con persist hacemos que se guarde en la base d datos. No podemos hacer persist de objetos que ya existen.
-		//Le decimos que se acuerde de guardar tal cosa en memoria.
-		em.persist(p1);
-		em.persist(p2);
-		em.persist(p3);
-		em.persist(p4);
-		
-		tx.commit();	//Consolidar datos en la Base de Datos.
-		//Commit sincroniza bd con memoria.
-		em.close();
-		
+		EntityManager em = null;
+		try{
+			em = factory.createEntityManager();
+//			List<PersonaBasica> personas = em.createQuery(jpql).getResultList(); //Para conseguir todos.
+			List<PersonaBasica> personas = em.createQuery(jpql)
+					.setParameter("n", "jesús")
+					.getResultList();
+			
+			Set<PersonaBasica> personasSet = new HashSet<PersonaBasica>();
+			personasSet.addAll(personas);
+			
+			System.out.println("-----------------------------------------------");
+			for (PersonaBasica pers : personasSet) {
+				System.out.print(pers.getNombre().toString());
+				System.out.print("	"+pers.getEdad());
+				System.out.println("	"+pers.getDni());
+				System.out.println("********************************************");
+			}
+			
+			System.out.println("-----------------------------------------------");
+			
+		}finally{
+			//Nos asegura que si la parte del try va bien se cierra, y si no también.
+			if(em != null){
+				em.close();
+			}
+		}
 	}
 }

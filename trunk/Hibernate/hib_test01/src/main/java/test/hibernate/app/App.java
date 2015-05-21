@@ -18,9 +18,27 @@ public class App {
 		
 		tx.begin();
 		
-
+		PersonaBasica p1 = new PersonaBasica();
+		p1.setDni("345666786T");
+		p1.setEdad(83);
+		p1.setNombre("jesus");
 		
+		PersonaBasica p2 = new PersonaBasica();
+		p2.setDni("345662286T");
+		p2.setEdad(22);
+		p2.setNombre("jesus2");
 		
+		PersonaBasica p3 = new PersonaBasica();
+		p3.setDni("345663386T");
+		p3.setEdad(33);
+		p3.setNombre("jesus3");
+					
+		//Con persist hacemos que se guarde en la base d datos. No podemos hacer persist de objetos que ya existen.
+		//Le decimos que se acuerde de guardar tal cosa en memoria.
+		em.persist(p1);
+		em.persist(p2);
+		
+		tx.commit();	//Consolidar datos en la Base de Datos.
 		//Commit sincroniza bd con memoria.
 		em.close();
 		
