@@ -36,7 +36,7 @@
 		<!-- Te cre la base de datos, te crea la estructura y el diseño -->
 		<!-- Si dejamos create-drop en la línea de abajo BORRARÁ la tabla. Si abajo ponemos value="validate", para que valide que la estructura ( esquema) sea correcto -->
 		<!-- value="create" te la crea y la deja creada, none no hace nada - <property name="hibernate.hbm2ddl.auto" value="none"/> -->
-			<property name="hibernate.hbm2ddl.auto" value="update"/>
+			<property name="hibernate.hbm2ddl.auto" value="validate"/>
 
 		</properties>
 	</persistence-unit>
