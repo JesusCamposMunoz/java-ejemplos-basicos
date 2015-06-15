@@ -55,5 +55,15 @@
   		<artifactId>commons-logging</artifactId>
   		<version>1.1.1</version>
   	</dependency>
+  	<dependency>
+		<groupId>org.springframework</groupId>
+		<artifactId>spring-web</artifactId>
+		<version>3.0.4.RELEASE</version>
+	</dependency>
+	<dependency>
+		<groupId>org.springframework</groupId>
+		<artifactId>spring-webmvc</artifactId>
+		<version>3.1.1.RELEASE</version>
+	</dependency>
   </dependencies>
 </project>
