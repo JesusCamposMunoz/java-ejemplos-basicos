@@ -31,6 +31,18 @@
   </servlet>
   <servlet-mapping>
 	<servlet-name>Test2</servlet-name>
-	<url-pattern>/TestServletTwo</url-pattern>
+	<url-pattern>/test2/TestServletTwo</url-pattern>
+  </servlet-mapping>
+ 
+  <!-- SERVLET #3 -->
+  <servlet>
+	<description></description>
+	<display-name>Test3</display-name>
+	<servlet-name>Test3</servlet-name>
+	<servlet-class>com.jesuscampos.servlets.Test3</servlet-class>
+  </servlet>
+  <servlet-mapping>
+	<servlet-name>Test3</servlet-name>
+	<url-pattern>TestServletThree</url-pattern>
   </servlet-mapping>
 </web-app>
