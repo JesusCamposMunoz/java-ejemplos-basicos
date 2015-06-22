@@ -7,6 +7,9 @@
 <title>Insert title here</title>
 </head>
 <body>
-<h1>PÁGINA DE TEST #3</h1>
+	<h1>PÁGINA DE TEST #3</h1>
+	<form method="POST" action="TestServletThree">
+		<input type="submit" value="Ejecutar POST">
+	</form>
 </body>
 </html>

@@ -43,6 +43,7 @@
   </servlet>
   <servlet-mapping>
 	<servlet-name>Test3</servlet-name>
-	<url-pattern>TestServletThree</url-pattern>
+	<url-pattern>/TestServletThree</url-pattern>
   </servlet-mapping>
+  
 </web-app>
