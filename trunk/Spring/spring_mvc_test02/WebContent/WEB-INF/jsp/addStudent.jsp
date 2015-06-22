@@ -7,10 +7,6 @@
 <title>Insert title here</title>
 </head>
 <body>
-	EJEMPLO SPRING MVC - FORMULARIOS<br>
-	<br>
-	<a href="student.html">Ir al controlador ... Student</a>
-	<br>
-	<a href="studentAndDni.html">Ir al controlador ... StudentAndDni</a>
+addStudent WEB
 </body>
 </html>
