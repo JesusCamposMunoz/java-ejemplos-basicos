@@ -1,0 +1,3 @@
+Fichero d pruebas ...
+linea 2
+línea fin
