@@ -12,7 +12,13 @@ public class ListDir {
 			//El siguiente vector de String's contiene la lista de directorios y archivos.
 			String[] directorios = f.list();
 			for (String string : directorios) {
-				System.out.println(string);
+				System.out.print(string);
+				if(new File("dirPruebas"+"/"+string).isDirectory()){
+					System.out.println(" - Es un directorio");
+				}
+				else{
+					System.out.println();
+				}
 			}
 		} catch (Exception e) {
 			// TODO: handle exception
