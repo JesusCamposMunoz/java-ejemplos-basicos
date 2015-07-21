@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<beans xmlns="http://www.springframework.org/schema/beans"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.springframework.org/schema/beans
+    http://www.springframework.org/schema/beans/spring-beans-3.0.xsd">
+
+   <!-- Definition for javaCollection -->
+   <bean id="javaCollection" class="spring_test04.JavaCollection">
+
+
+      <!-- Passing bean reference  for java.util.List -->
+      <property name="addressList">
+         <list>
+            <ref bean="address1"/>
+            <value>EEUU</value>
+         </list>
+      </property>
+      
+
+      
+
+      
+   </bean>
+
+   
+	<!-- A bean definition for addressList -->
+    <bean id="address1" class="spring_test04.MyPerson">
+		<property name="name" value="mkyong1" />
+		<property name="age" value="12" />
+	</bean>
+	
+   <!-- El siguiente elemento también sería válido
+   <bean id="address1" class="java.lang.Object">
+	</bean>
+   -->
+   
+   
+</beans>
