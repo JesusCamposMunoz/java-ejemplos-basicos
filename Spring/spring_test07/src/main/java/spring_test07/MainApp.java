@@ -10,7 +10,7 @@ import org.springframework.context.annotation.*;
 public class MainApp {
    public static void main(String[] args) {
       ApplicationContext ctx = 
-      new AnnotationConfigApplicationContext(HelloWorldConfig.class);
+      new AnnotationConfigApplicationContext(HelloWorld2Config.class);
    
       HelloWorld helloWorld = ctx.getBean(HelloWorld.class);
 
