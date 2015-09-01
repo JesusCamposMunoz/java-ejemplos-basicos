@@ -1,0 +1,275 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wsdl:definitions targetNamespace="http://clasessimples.jesuscampos.com" xmlns:apachesoap="http://xml.apache.org/xml-soap" xmlns:impl="http://clasessimples.jesuscampos.com" xmlns:intf="http://clasessimples.jesuscampos.com" xmlns:tns1="http://domain.jesuscampos.com" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:wsdlsoap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+<!--WSDL created by Apache Axis version: 1.4
+Built on Apr 22, 2006 (06:55:48 PDT)-->
+ <wsdl:types>
+  <schema elementFormDefault="qualified" targetNamespace="http://clasessimples.jesuscampos.com" xmlns="http://www.w3.org/2001/XMLSchema">
+   <import namespace="http://domain.jesuscampos.com"/>
+   <element name="testMetodoWS">
+    <complexType/>
+   </element>
+   <element name="testMetodoWSResponse">
+    <complexType>
+     <sequence>
+      <element name="testMetodoWSReturn" type="xsd:string"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="testPersonaWS">
+    <complexType/>
+   </element>
+   <element name="testPersonaWSResponse">
+    <complexType>
+     <sequence>
+      <element name="testPersonaWSReturn" type="tns1:Persona"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="testPersonaWSObj">
+    <complexType/>
+   </element>
+   <element name="testPersonaWSObjResponse">
+    <complexType>
+     <sequence>
+      <element name="testPersonaWSObjReturn" type="tns1:Persona"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="testMetodoWSParam">
+    <complexType>
+     <sequence>
+      <element name="variable" type="xsd:string"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="testMetodoWSParamResponse">
+    <complexType>
+     <sequence>
+      <element name="testMetodoWSParamReturn" type="xsd:string"/>
+     </sequence>
+    </complexType>
+   </element>
+  </schema>
+  <schema elementFormDefault="qualified" targetNamespace="http://domain.jesuscampos.com" xmlns="http://www.w3.org/2001/XMLSchema">
+   <complexType name="Dni">
+    <sequence>
+     <element name="letra" nillable="true" type="xsd:string"/>
+     <element name="numero" type="xsd:int"/>
+    </sequence>
+   </complexType>
+   <complexType name="Persona">
+    <sequence>
+     <element name="apellidoDos" nillable="true" type="xsd:string"/>
+     <element name="apellidoUno" nillable="true" type="xsd:string"/>
+     <element name="dni" nillable="true" type="tns1:Dni"/>
+     <element name="nombre" nillable="true" type="xsd:string"/>
+    </sequence>
+   </complexType>
+  </schema>
+ </wsdl:types>
+
+   <wsdl:message name="testMetodoWSResponse">
+
+      <wsdl:part element="impl:testMetodoWSResponse" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="testPersonaWSObjRequest">
+
+      <wsdl:part element="impl:testPersonaWSObj" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="testPersonaWSRequest">
+
+      <wsdl:part element="impl:testPersonaWS" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="testMetodoWSRequest">
+
+      <wsdl:part element="impl:testMetodoWS" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="testMetodoWSParamRequest">
+
+      <wsdl:part element="impl:testMetodoWSParam" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="testMetodoWSParamResponse">
+
+      <wsdl:part element="impl:testMetodoWSParamResponse" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="testPersonaWSResponse">
+
+      <wsdl:part element="impl:testPersonaWSResponse" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="testPersonaWSObjResponse">
+
+      <wsdl:part element="impl:testPersonaWSObjResponse" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:portType name="TestWS">
+
+      <wsdl:operation name="testMetodoWS">
+
+         <wsdl:input message="impl:testMetodoWSRequest" name="testMetodoWSRequest">
+
+       </wsdl:input>
+
+         <wsdl:output message="impl:testMetodoWSResponse" name="testMetodoWSResponse">
+
+       </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="testPersonaWS">
+
+         <wsdl:input message="impl:testPersonaWSRequest" name="testPersonaWSRequest">
+
+       </wsdl:input>
+
+         <wsdl:output message="impl:testPersonaWSResponse" name="testPersonaWSResponse">
+
+       </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="testPersonaWSObj">
+
+         <wsdl:input message="impl:testPersonaWSObjRequest" name="testPersonaWSObjRequest">
+
+       </wsdl:input>
+
+         <wsdl:output message="impl:testPersonaWSObjResponse" name="testPersonaWSObjResponse">
+
+       </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="testMetodoWSParam">
+
+         <wsdl:input message="impl:testMetodoWSParamRequest" name="testMetodoWSParamRequest">
+
+       </wsdl:input>
+
+         <wsdl:output message="impl:testMetodoWSParamResponse" name="testMetodoWSParamResponse">
+
+       </wsdl:output>
+
+      </wsdl:operation>
+
+   </wsdl:portType>
+
+   <wsdl:binding name="TestWSSoapBinding" type="impl:TestWS">
+
+      <wsdlsoap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+
+      <wsdl:operation name="testMetodoWS">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="testMetodoWSRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="testMetodoWSResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="testPersonaWS">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="testPersonaWSRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="testPersonaWSResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="testPersonaWSObj">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="testPersonaWSObjRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="testPersonaWSObjResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="testMetodoWSParam">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="testMetodoWSParamRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="testMetodoWSParamResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+   </wsdl:binding>
+
+   <wsdl:service name="TestWSService">
+
+      <wsdl:port binding="impl:TestWSSoapBinding" name="TestWS">
+
+         <wsdlsoap:address location="http://localhost:8080/WSForGrails/services/TestWS"/>
+
+      </wsdl:port>
+
+   </wsdl:service>
+
+</wsdl:definitions>

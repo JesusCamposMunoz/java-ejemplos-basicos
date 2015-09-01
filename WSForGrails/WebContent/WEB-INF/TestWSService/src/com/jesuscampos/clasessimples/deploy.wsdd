@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?><!-- Use this file to deploy some handlers/chains and services      --><!-- Two ways to do this:                                           --><!--   java org.apache.axis.client.AdminClient deploy.wsdd          --><!--      after the axis server is running                          --><!-- or                                                             --><!--   java org.apache.axis.utils.Admin client|server deploy.wsdd   --><!--      from the same directory that the Axis engine runs         --><deployment xmlns="http://xml.apache.org/axis/wsdd/" xmlns:java="http://xml.apache.org/axis/wsdd/providers/java">
+
+  <!-- Services from TestWSService WSDL service -->
+
+  <service name="TestWS" provider="java:RPC" style="wrapped" use="literal">
+      <parameter name="wsdlTargetNamespace" value="http://clasessimples.jesuscampos.com.src"/>
+      <parameter name="wsdlServiceElement" value="TestWSService"/>
+      <parameter name="schemaQualified" value="http://domain.jesuscampos.com.src,http://clasessimples.jesuscampos.com.src"/>
+      <parameter name="wsdlServicePort" value="TestWS"/>
+      <parameter name="className" value="src.com.jesuscampos.clasessimples.TestWS"/>
+      <parameter name="wsdlPortType" value="TestWS"/>
+      <parameter name="typeMappingVersion" value="1.2"/>
+      <operation xmlns:operNS="http://clasessimples.jesuscampos.com.src" xmlns:retNS="http://clasessimples.jesuscampos.com.src" xmlns:rtns="http://domain.jesuscampos.com.src" name="testPersonaWSObj" qname="operNS:testPersonaWSObj" returnQName="retNS:testPersonaWSObjReturn" returnType="rtns:Persona" soapAction="">
+      </operation>
+      <operation xmlns:operNS="http://clasessimples.jesuscampos.com.src" xmlns:retNS="http://clasessimples.jesuscampos.com.src" xmlns:rtns="http://www.w3.org/2001/XMLSchema" name="testMetodoWSParam" qname="operNS:testMetodoWSParam" returnQName="retNS:testMetodoWSParamReturn" returnType="rtns:string" soapAction="">
+        <parameter xmlns:pns="http://clasessimples.jesuscampos.com.src" xmlns:tns="http://www.w3.org/2001/XMLSchema" qname="pns:variable" type="tns:string"/>
+      </operation>
+      <operation xmlns:operNS="http://clasessimples.jesuscampos.com.src" xmlns:retNS="http://clasessimples.jesuscampos.com.src" xmlns:rtns="http://www.w3.org/2001/XMLSchema" name="testMetodoWS" qname="operNS:testMetodoWS" returnQName="retNS:testMetodoWSReturn" returnType="rtns:string" soapAction="">
+      </operation>
+      <operation xmlns:operNS="http://clasessimples.jesuscampos.com.src" xmlns:retNS="http://clasessimples.jesuscampos.com.src" xmlns:rtns="http://domain.jesuscampos.com.src" name="testPersonaWS" qname="operNS:testPersonaWS" returnQName="retNS:testPersonaWSReturn" returnType="rtns:Persona" soapAction="">
+      </operation>
+      <parameter name="allowedMethods" value="testPersonaWSObj testMetodoWSParam testMetodoWS testPersonaWS"/>
+
+      <typeMapping xmlns:ns="http://domain.jesuscampos.com.src" qname="ns:Dni" type="java:src.com.jesuscampos.domain.Dni" serializer="org.apache.axis.encoding.ser.BeanSerializerFactory" deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory" encodingStyle=""/>
+      <typeMapping xmlns:ns="http://domain.jesuscampos.com.src" qname="ns:Persona" type="java:src.com.jesuscampos.domain.Persona" serializer="org.apache.axis.encoding.ser.BeanSerializerFactory" deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory" encodingStyle=""/>
+  </service>
+</deployment>
